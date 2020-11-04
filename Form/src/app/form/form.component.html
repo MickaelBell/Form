@@ -1,0 +1,88 @@
+<div>
+  <form #myForm="ngForm" (ngSubmit)="myForm.valid" class="form-group">
+
+    <label for="title">Title</label><br>
+    <input type='text' name='text' ngModel #text="ngModel" text required><br>
+
+    <div *ngIf="myForm.submitted && text.errors.required">
+      <h3>Text required</h3>
+    </div>
+
+    <label for="quantity">Quantity</label><br>
+    <input type='number' name="number" ngModel #number="ngModel" number required><br>
+
+    <div *ngIf="myForm.submitted && number.errors.required">
+      <h3>Quantity required</h3>
+    </div>
+
+    <label for="orderDate">Oder Date</label><br>
+    <input type="date" name="date" ngModel #date="ngModel" date required><br>
+
+    <div *ngIf="myForm.submitted && date.errors.required">
+      <h3>Date required</h3>
+    </div>
+
+    <label for="firstname">Firstname</label><br>
+    <input type='text' name='firstname' ngModel #firstname="ngModel" required><br>
+
+    <div *ngIf="myForm.submitted && firstname.errors.required">
+      <h3>Firstname required</h3>
+    </div>
+
+    <label for="lastname">Lastname</label><br>
+    <input type='text' name='Lastname' ngModel #lastname="ngModel" required><br>
+
+    <div *ngIf="myForm.submitted && lastname.errors.required">
+      <h3>Firstname required</h3>
+    </div>
+
+    <label for="userEmail">Your Email :</label><br>
+    <input type="email" name="userEmail" ngModel #userMail="ngModel" email required minlength="3"><br>
+
+    <div *ngIf="myForm.submitted && userMail.invalid">
+
+      <div *ngIf="userMail.errors.required">
+        <h3>Email required</h3>
+      </div>
+
+      <div *ngIf="userMail.errors.email">
+        <h3>Invalid Email</h3>
+      </div>
+    </div>
+
+    <label for="userPassword">Your Password :</label><br>
+    <input type="password" name="userPassword" ngModel minlength="6" required #userPwd="ngModel">
+
+    <div *ngIf="myForm.submitted && userPwd.invalid">
+
+      <div *ngIf="userPwd.errors.required">
+        <h3>Password required</h3>
+      </div>
+
+      <div *ngIf="userPwd.errors.minlength">
+        <h3>The Password must have at least 6 characters</h3>
+      </div>
+
+    </div>
+
+    <div *ngIf="myForm.submitted && userMail.valid && userPwd.valid">
+      <h2>Submit done</h2>
+    </div>
+
+
+    <br>
+
+    <section class="buttonSection">
+
+      <div>
+        <button (click)="buttonSubmit()" type="submit">Submit</button>
+      </div>
+
+      <div>
+        <button type="reset">Reset</button>
+      </div>
+
+    </section>
+
+  </form>
+</div>

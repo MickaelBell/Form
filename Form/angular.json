@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "Form"
+    }
+  },
+  "defaultProject": "Form",
+  "cli": {
+    "analytics": "32886956-f8ba-4496-b693-eec1cb8cb292"
+  }
 }
